@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: #e9e9e9;">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.4.2/dist/css/uikit.min.css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.2/styles/night-owl.min.css">
+  <title></title>
+</head>
+
+<body>
+  <div id="offcanvas-push" uk-offcanvas="mode: push; overlay: true">
+    <div class="uk-offcanvas-bar">
+
+      <button class="uk-offcanvas-close" type="button" uk-close></button>
+
+      <h3>Algorithms:</h3>
+      <ul class="uk-list uk-margin-top">
+        <li>
+          <p class="newAlgo" id="bubbleSortID" style="cursor: pointer;">Bubble Sort</p>
+        </li>
+        <li>
+          <p class="newAlgo" id="selectionSortID" style="cursor: pointer;">Selection Sort</p>
+        </li>
+        <li>
+          <p class="newAlgo" id="insertionSortID" style="cursor: pointer;">Insertion Sort</p>
+        </li>
+        <!-- <li>
+          <p class="newAlgo" id="mergeSortID" style="cursor: pointer;">Merge Sort</p>
+        </li> -->
+        <li>
+          <p class="newAlgo" id="quickSortID" style="cursor: pointer;">Quick Sort</p>
+        </li>
+        <li>
+          <p class="newAlgo" id="heapSortID" style="cursor: pointer;">Heap Sort</p>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+
+  <main>
+    <div>
+      <div class="uk-flex	uk-flex-center">
+        <h3 class=" uk-margin-top" id="algoTitle"></h3>
+      </div>
+      <div class="uk-flex	uk-flex-center ">
+        <button class="uk-button uk-button-small uk-button-secondary uk-margin-small-right" type="button"
+          uk-toggle="target: #offcanvas-push">Select another algorithm</button>
+      </div>
+      <div class="uk-card uk-card-default uk-margin-top uk-flex uk-flex-center" style="padding: 6px;">
+        <canvas id="bar" width="2000" height="900"></canvas>
+      </div>
+      <div class="uk-container">
+        <div class="uk-card uk-card-default uk-margin-top uk-padding-small uk-grid-small" uk-grid>
+          <div class="uk-flex uk-width-1 ">
+            <div class="uk-width-1-2@s uk-background-muted" style="padding:6px;border: 1px solid rgb(233, 233, 233);">
+              <label class="uk-form-label" for="height">Set canvas height</label>
+              <div class="uk-margin">
+                <input class="uk-range" id="height" type="range" value="500" min="300" max="2000" step="1">
+              </div>
+            </div>
+            <div class=" uk-width-1-2@s uk-background-muted "
+              style="padding:6px;margin-left: 10px;border: 1px solid rgb(233, 233, 233);">
+              <label class="uk-form-label" for="width">Set canvas width</label>
+              <div class="uk-margin">
+                <input class="uk-range" id="width" type="range" value="100" min="20" max="100" step="1">
+              </div>
+            </div>
+          </div>
+
+          <div class="uk-width-1-2@s">
+            <label class="uk-form-label" for="barnumbers">Number of bars</label>
+            <input class="uk-input" id="barnumbers" type="text">
+          </div>
+          <div class="uk-width-1-2@s">
+            <label class="uk-form-label" for="speed"
+              uk-tooltip="title: sorting delay in miliseconds; pos: top-left">Speed (400ms - 1ms)</label>
+            <div class="uk-margin">
+              <input class="uk-range" id="speed" type="range" value="80" min="1" max="400" step="10"
+                style="direction: rtl">
+            </div>
+          </div>
+          <div class="">
+            <button class="uk-button uk-button-primary" id="startAlgo" href="#!">START</button>
+          </div>
+          <div class="">
+            <button class="uk-button uk-button-danger" id="stopAlgo" href="#!">STOP</button>
+          </div>
+          <div class="">
+            <button class="uk-button uk-button-primary" id="shuffleData" style="background-color: rgb(223, 168, 17);"
+              href="#!">SHUFFLE</button>
+          </div>
+
+        </div>
+
+     
+        <div class="uk-flex	uk-flex-center uk-margin-top">
+          <button class="uk-button  uk-button-secondary uk-margin-small-right" type="button"
+            uk-toggle="target: #modal-example">Compare the speed of algorithms</button>
+        </div>
+
+        <div class="uk-card uk-card-default uk-margin-top uk-padding-small uk-grid-small" uk-grid>
+          <ul uk-accordion class="uk-width-1 ">
+            <li>
+              <a class="uk-accordion-title" href="#">How it works</a>
+              <div class="uk-accordion-content">
+                <iframe id="wikiID" src="https://en.wikipedia.org/wiki/Bubble_sort" frameborder="0"
+                  style="width:100%;height:60vh;"></iframe>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="uk-card uk-card-default uk-padding-small uk-grid-small">
+          <ul uk-accordion class="uk-width-1 ">
+            <li class="uk-open">
+              <a class="uk-accordion-title" href="#">Code Examples</a>
+              <div class="uk-accordion-content" id="codeExamples">
+                <div class="">
+                  <p>Javascript:</p>
+                  <pre style="background-color: #011627">
+                    <code class="javascript" id="javascript">
+                    </code>
+                  </pre>
+                </div>
+                <div class="">
+                  <p>Python:</p>
+                  <pre style="background-color: #011627">
+                  <code class="python"id="python">
+                  </code>
+                </pre>
+                </div>
+                <div class="">
+                  <p>C:</p>
+                  <pre style="background-color: #011627">
+                  <code class="c"id="clang">
+                  </code>
+                </pre>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+
+        </div>
+      </div>
+    </div>
+
+  </main>
+  
+
+  <!--  modal -->
+  <div id="modal-example" class="uk-modal-container" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+      <h2 class="uk-modal-title">Compare algorithms</h2>
+
+      <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+        <div class="uk-width-1-1 uk-margin-small-top">
+          <label class="uk-form-label" for="dataSize">Data Size</label>
+          <input class="uk-input" id="dataSize" type="text">
+        </div>
+        <ul class="uk-width-1-1 uk-list  uk-list-divider"id="compareList">
+        </ul>
+      
+    </div>
+      <p class="uk-text-right">
+        <button id="compareAlgos"class="uk-button uk-button-secondary " type="button">Start</button>
+
+      </p>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.4/dist/js/uikit.min.js"></script>
+
+</body>
+
+</html>
